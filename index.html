@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>AwesomeMath Staff</title>
+		<script type="text/javascript">
+			function hash(s){
+				var n = s.length;
+				var h = 0, p = 31;
+				for(var i = 0; i < n; i++){
+					h += p * s[i];
+					p *= 31;
+				}
+				return h;
+			}
+			function check(form){
+				var p = form.pass.value;
+				console.log(p);
+				var trueHash = 428104;
+				console.log(hash(p));
+				if(hash(p) == trueHash){
+					alert("Congratulations, you have escaped from Combo 3!")
+
+				} else{
+					alert("Incorrect Password")
+				}
+			}
+		</script>
+
+	</head>
+	<body>
+		<img src="https://www.awesomemath.org/wp-content/uploads/2016_header_flat_logo_300x83.png">
+		<h3>Login to access course changes</h3>
+		<form onsubmit="return check(this)">
+			<input type="password" name="Password" id="pass"><br>
+			<input type="submit" name="Submit">
+		</form>
+	</body>
+</html>
