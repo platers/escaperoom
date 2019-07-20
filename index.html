@@ -3,6 +3,7 @@
 		<title>AwesomeMath Staff</title>
 		<script type="text/javascript">
 			function hash(s){
+				console.log(s)
 				var n = s.length;
 				var h = 0, p = 31;
 				for(var i = 0; i < n; i++){
@@ -12,13 +13,12 @@
 				}
 				return h;
 			}
-			console.log(hash('Lisa'))
 			function check(form){
 				var p = form.pass.value;
-				var u = form.user.value;
+				var u = form.user.value.toLowerCase();
 				console.log(p);
 				var trueHash = 1232944;
-				var trueUser = 1488377;
+				var trueUser = 1489369;
 				if(hash(u) != trueUser){
 					alert("Username is incorrect. It must be an RA's first name")
 					return false;
