@@ -6,21 +6,28 @@
 				var n = s.length;
 				var h = 0, p = 31;
 				for(var i = 0; i < n; i++){
-					h += p * s[i];
+					h += p * s.charCodeAt(i);
 					p *= 31;
+					p %= 10009; //hehe
 				}
 				return h;
 			}
+			console.log(hash('Lisa'))
 			function check(form){
 				var p = form.pass.value;
+				var u = form.user.value;
 				console.log(p);
-				var trueHash = 428104;
-				console.log(hash(p));
+				var trueHash = 1232944;
+				var trueUser = 1488377;
+				if(hash(u) != trueUser){
+					alert("Username is incorrect. It must be an RA's first name")
+					return false;
+				}
 				if(hash(p) == trueHash){
 					alert("Congratulations, you have escaped from Combo 3!")
 
 				} else{
-					alert("Incorrect Password")
+					alert("Incorrect Password. It must be a 6 digit number")
 				}
 			}
 		</script>
@@ -30,6 +37,9 @@
 		<img src="https://www.awesomemath.org/wp-content/uploads/2016_header_flat_logo_300x83.png">
 		<h3>Login to access course changes</h3>
 		<form onsubmit="return check(this)">
+			<label for="pass">Username:</label>
+			<input type="password" name="Username" id="user"><br>
+			<label for="pass">Password:</label>
 			<input type="password" name="Password" id="pass"><br>
 			<input type="submit" name="Submit">
 		</form>
